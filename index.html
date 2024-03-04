@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        /* background-color: aqua; */
+      }
+      .body{
+        background-color:lightblue;
+
+      }
+
+      .mdiv {
+        display: flex;
+        justify-content: center;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        align-items: center;
+      }
+     
+    </style>
+  </head>
+  <body class="body">
+    <div class="mdiv">
+      <div class="sub">
+        <h1 align="center">TEXT EDITOR</h1>
+        <div class="dtextarea">
+          <form action="">
+            <textarea
+              autofocus
+              name=""
+              id="txtarea"
+              cols="90"
+              rows="18"
+              min=""
+              max="" onkeypress="updateInfo()"
+            ></textarea>
+          </form>
+        </div>
+
+                <button type="button" onclick="upper()">Uppercase</button>
+                <button type="button" onclick="lower()">LowerCase</button>
+                <button type="button" onclick="bold()">Bold</button>
+                <button type="button" onclick="underline()">underline</button>
+                <button type="button" onclick="italic()">italic</button>
+                <button type="button" onclick="strikethrough()">strikethrough</button>
+                <button type="button" onclick="subscript()">subscript</button>
+                <button type="button" onclick="superscript()">superscript</button>
+                <button type="button" onclick="left()">Left</button>
+                <button type="button" onclick="center()">center</button>
+                <button type="button" onclick="right()">right</button>
+                <button type="button" onclick="capitalize()">Capitalize</button>
+                <!-- <button type="button" onclick="copy()">copy</button>
+                <button type="button" onclick="cut()">cut</button> -->
+
+
+
+
+        
+
+
+
+
+
+
+        <button type="button" onclick="search()">search</button>
+
+
+        <h3 id="info">your text contain 0 words and 0 charecters</h3>
+      </div>
+    </div>
+
+    <script>
+      let txt = document.getElementById("txtarea");
+
+       function upper() 
+       {
+        txt.value = txt.value.toUpperCase();
+       }
+       function lower()
+       {
+        txt.value = txt.value.toLowerCase();
+       }
+
+       function bold()
+       {
+            txt.style.fontWeight = "bolder";
+       }
+       function underline()
+       {
+          var isUnderlined=txt.style.textDecoration === "underline";
+           txt.style.textDecoration = isUnderlined ? "none":"underline";
+       }
+       function italic()
+       {
+              txt.style.fontStyle="italic";
+       }
+       function strikethrough()
+       {
+        var isstrikethrough=txt.style.textDecoration === "line-through";
+        txt.style.textDecoration = isstrikethrough ? "none":"line-through";  
+       }
+       function subscript()
+       {
+        txt.style.verticalAlign="sub";
+       }
+
+       function superscript()
+       {
+        txt.style.verticalAlign="super";
+       }
+
+       function center()
+       {
+        txt.style.textAlign="center";
+       }
+       
+       function right()
+       {
+        txt.style.textAlign="right";
+       }
+       function left()
+       {
+        txt.style.textAlign="left";
+       }
+
+       function capitalize()
+       {
+        txt.style.textTransform="Capitalize";
+       }
+     
+
+
+       function updateInfo()
+       {
+        let text = txt.value;
+        info.innerHTML =`your text contain ${text.split(' ').length} words and ${text.length} charecters` ;
+       }
+
+       function search()
+       {
+        let str = prompt("Enter something to Search ");
+        let text = txt.value;
+
+        if(text.includes(str))
+        {
+            alert(`Yes ${str} is here` );
+        }
+        else{
+            alert(`YES ${str} is not present.`);
+        }
+       }
+
+    </script>
+  </body>
+</html>
